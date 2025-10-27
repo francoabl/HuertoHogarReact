@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap'
+import { Container, Row, Col, Button, Dropdown, Carousel } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Home.css'
 
@@ -43,11 +43,43 @@ const Home = () => {
               </div>
             </Col>
             <Col lg={6} className="text-center mt-4 mt-lg-0">
-              <img 
-                src="/public/assets/img/campo.webp" 
-                alt="Campo verde" 
-                className="img-fluid rounded-circle hero-image"
-              />
+              <div className="hero-carousel-wrapper">
+                <Carousel 
+                  fade 
+                  interval={3000} 
+                  controls={false} 
+                  indicators={true}
+                  className="hero-carousel"
+                >
+                  <Carousel.Item>
+                    <div className="carousel-image-circle">
+                      <img 
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=600&fit=crop&q=80&fm=webp" 
+                        alt="Campo de cultivo verde"
+                        className="img-fluid rounded-circle hero-image"
+                      />
+                    </div>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <div className="carousel-image-circle">
+                      <img 
+                        src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=600&fit=crop&q=80&fm=webp" 
+                        alt="Granja con vegetales frescos"
+                        className="img-fluid rounded-circle hero-image"
+                      />
+                    </div>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <div className="carousel-image-circle">
+                      <img 
+                        src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=600&fit=crop&q=80&fm=webp" 
+                        alt="Cosecha de productos orgánicos"
+                        className="img-fluid rounded-circle hero-image"
+                      />
+                    </div>
+                  </Carousel.Item>
+                </Carousel>
+              </div>
             </Col>
           </Row>
         </Container>

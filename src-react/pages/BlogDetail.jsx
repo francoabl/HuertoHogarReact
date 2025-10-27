@@ -94,6 +94,116 @@ const BLOGS = [
       
       <p>En HuertoHogar seleccionamos cuidadosamente los mejores productos de cada temporada, asegurándonos de que lleguen a tu mesa con la máxima frescura del campo chileno.</p>
     `
+  },
+  {
+    id: 4,
+    titulo: "Compostaje en casa: Guía completa",
+    fecha: "2025-08-01",
+    imagen: "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=1200&h=600&fit=crop",
+    categoria: "Sostenibilidad",
+    autor: "Pedro Sánchez",
+    tiempoLectura: "8 min",
+    contenido: `
+      <p class="lead">El compostaje es una práctica sencilla y efectiva para reducir tus desechos orgánicos mientras creas un fertilizante natural de alta calidad para tus plantas.</p>
+      
+      <h3>¿Qué es el compost?</h3>
+      <p>El compost es el resultado de la descomposición controlada de materia orgánica. Es un proceso natural que transforma tus restos de cocina y jardín en un rico abono que mejora la estructura del suelo y aporta nutrientes esenciales.</p>
+      
+      <h3>Materiales para compostar:</h3>
+      <ul>
+        <li><strong>Verdes (ricos en nitrógeno):</strong> Restos de frutas y verduras, posos de café, césped fresco, cáscaras de huevo.</li>
+        <li><strong>Marrones (ricos en carbono):</strong> Hojas secas, ramas pequeñas, papel, cartón sin tinta.</li>
+        <li><strong>Lo que NO debes compostar:</strong> Carne, lácteos, grasas, huesos, plásticos, vidrio.</li>
+      </ul>
+      
+      <h3>Paso a paso:</h3>
+      <ol>
+        <li><strong>Elige un contenedor:</strong> Puede ser una compostera comprada o hecha en casa con pallets.</li>
+        <li><strong>Alterna capas:</strong> Comienza con una capa de material marrón, luego verde, y así sucesivamente.</li>
+        <li><strong>Mantén la humedad:</strong> El compost debe estar húmedo como una esponja exprimida.</li>
+        <li><strong>Airea regularmente:</strong> Remueve el contenido cada 1-2 semanas para oxigenar.</li>
+        <li><strong>Espera de 2-6 meses:</strong> El tiempo varía según el clima y los materiales.</li>
+      </ol>
+      
+      <blockquote class="blockquote border-start border-5 border-success ps-3 my-4">
+        <p>"El compostaje no solo reduce tu huella ambiental, sino que devuelve a la tierra lo que nos da, cerrando el ciclo de la naturaleza."</p>
+      </blockquote>
+      
+      <p>¡Empieza hoy mismo y contribuye a un planeta más sostenible!</p>
+    `
+  },
+  {
+    id: 5,
+    titulo: "Recetas saludables con verduras de temporada",
+    fecha: "2025-07-20",
+    imagen: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&h=600&fit=crop",
+    categoria: "Recetas",
+    autor: "Chef Laura Vega",
+    tiempoLectura: "10 min",
+    contenido: `
+      <p class="lead">Aprovecha al máximo las verduras frescas de cada estación con estas deliciosas recetas nutritivas y fáciles de preparar.</p>
+      
+      <h3>Ensalada Primaveral de Espinacas</h3>
+      <p><strong>Ingredientes:</strong> Espinacas frescas, fresas, nueces, queso de cabra, vinagreta de miel.</p>
+      <p>Una combinación perfecta de sabores dulces y salados que resalta la frescura de las espinacas de primavera.</p>
+      
+      <h3>Crema de Calabaza Otoñal</h3>
+      <p><strong>Ingredientes:</strong> Calabaza, cebolla, ajo, caldo de verduras, crema, nuez moscada.</p>
+      <p>Reconfortante y nutritiva, esta sopa es perfecta para las tardes frías de otoño.</p>
+      
+      <h3>Salteado de Verduras de Verano</h3>
+      <p><strong>Ingredientes:</strong> Zucchini, tomates cherry, pimientos, ajo, aceite de oliva, albahaca fresca.</p>
+      <p>Colorido, rápido y lleno de sabor mediterráneo. Ideal como acompañamiento o plato principal.</p>
+      
+      <h3>Consejos para cocinar verduras:</h3>
+      <ul>
+        <li><strong>No sobrecocines:</strong> Las verduras al dente retienen más nutrientes y tienen mejor textura.</li>
+        <li><strong>Aprovecha las cáscaras:</strong> Muchas vitaminas están en la piel. Lávalas bien y consúmelas enteras.</li>
+        <li><strong>Varía los métodos:</strong> Alterna entre asado, vapor, salteado y crudo para no aburrirte.</li>
+      </ul>
+      
+      <p>En HuertoHogar encontrarás las verduras más frescas para llevar estas recetas a tu mesa. ¡Buen provecho!</p>
+    `
+  },
+  {
+    id: 6,
+    titulo: "Control natural de plagas en el huerto",
+    fecha: "2025-07-10",
+    imagen: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200&h=600&fit=crop",
+    categoria: "Huerto Urbano",
+    autor: "Ing. Roberto Flores",
+    tiempoLectura: "7 min",
+    contenido: `
+      <p class="lead">Mantén tu huerto saludable y libre de plagas sin recurrir a pesticidas químicos. Descubre métodos ecológicos y efectivos.</p>
+      
+      <h3>Prevención: La mejor estrategia</h3>
+      <p>Un huerto sano es menos susceptible a plagas. Mantén plantas fuertes con buen riego, luz solar adecuada y suelo nutritivo.</p>
+      
+      <h3>Métodos naturales de control:</h3>
+      <ul>
+        <li><strong>Plantas compañeras:</strong> Albahaca repele moscas y mosquitos, caléndulas alejan pulgones.</li>
+        <li><strong>Depredadores naturales:</strong> Atrae mariquitas, mantis religiosas y pájaros a tu huerto.</li>
+        <li><strong>Barreras físicas:</strong> Mallas, trampas cromáticas y cintas repelentes.</li>
+        <li><strong>Soluciones caseras:</strong> Spray de ajo, jabón potásico, aceite de neem.</li>
+      </ul>
+      
+      <h3>Receta: Spray repelente natural</h3>
+      <p><strong>Ingredientes:</strong> 1 cabeza de ajo, 1 litro de agua, 1 cucharada de jabón líquido natural.</p>
+      <p><strong>Preparación:</strong> Licúa el ajo con agua, deja reposar 24h, cuela y añade el jabón. Aplica en las hojas afectadas.</p>
+      
+      <h3>Plagas comunes y soluciones:</h3>
+      <ul>
+        <li><strong>Pulgones:</strong> Spray de agua con jabón o mariquitas.</li>
+        <li><strong>Caracoles:</strong> Barreras de cáscara de huevo triturada o cerveza en recipientes.</li>
+        <li><strong>Orugas:</strong> Recogida manual o Bacillus thuringiensis (bacteria natural).</li>
+      </ul>
+      
+      <blockquote class="blockquote border-start border-5 border-success ps-3 my-4">
+        <p>"La naturaleza tiene sus propias soluciones. Aprende a trabajar con ella, no contra ella."</p>
+      </blockquote>
+      
+      <p>Con paciencia y observación, tu huerto prosperará de manera natural y sostenible.</p>
+    `
   }
 ]
 
