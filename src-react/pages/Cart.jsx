@@ -52,7 +52,7 @@ const Cart = () => {
                         <td>
                           <div className="d-flex align-items-center">
                             <img
-                              src={`/public/${item.imagen}`}
+                              src={`/${item.imagen}`}
                               alt={item.nombre}
                               className="cart-item-image me-3"
                             />

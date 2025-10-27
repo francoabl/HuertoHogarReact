@@ -242,7 +242,7 @@ const Products = () => {
                       <Link to={`/producto/${product.id}`} className="product-link">
                         <Card.Img
                           variant="top"
-                          src={`/public/${product.imagen}`}
+                          src={`/${product.imagen}`}
                           alt={product.nombre}
                           className="product-image"
                         />
@@ -281,7 +281,7 @@ const Products = () => {
                       <Col xs={4} md={3}>
                         <Link to={`/producto/${product.id}`} className="product-link">
                           <Card.Img
-                            src={`/public/${product.imagen}`}
+                            src={`/${product.imagen}`}
                             alt={product.nombre}
                             className="product-image-list"
                           />
