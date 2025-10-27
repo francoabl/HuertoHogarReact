@@ -198,17 +198,49 @@
 }
 
 /* Responsive */
+@media (max-width: 991px) {
+  .blog-hero .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .blog-hero .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .blog-image-container {
+    height: 220px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+  }
+}
+
 @media (max-width: 768px) {
   .blog-hero {
-    padding: 2rem 0;
+    padding: 2rem 0 1.5rem;
   }
 
   .blog-hero .hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
   }
 
   .blog-hero .hero-subtitle {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .blog-card {
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
   }
 
   .blog-image-container {
@@ -217,17 +249,106 @@
 
   .blog-title {
     font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-excerpt {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-card .btn-success {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .section-title::after {
+    width: 60px;
+    height: 3px;
+    margin-top: 10px;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    padding: 2.5rem 0 !important;
   }
 
   .cta-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .cta-text {
     font-size: 1rem;
+  }
+
+  .cta-section .btn-light {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-hero .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .blog-hero .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .blog-image-container {
+    height: 180px;
+  }
+
+  .blog-title {
+    font-size: 1rem;
+  }
+
+  .blog-excerpt {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .cta-title {
+    font-size: 1.3rem;
+  }
+
+  .cta-text {
+    font-size: 0.9rem;
   }
 }

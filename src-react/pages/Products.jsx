@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container, Row, Col, Form, Button, Card, InputGroup, Spinner } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button, Card, InputGroup, Spinner, Collapse } from 'react-bootstrap'
 import { useSearchParams, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import productosData from '../../src/data/productos.json'
@@ -14,6 +14,8 @@ const Products = () => {
   const [minPrice, setMinPrice] = useState('')
   const [maxPrice, setMaxPrice] = useState('')
   const [loading, setLoading] = useState(true)
+  const [viewMode, setViewMode] = useState('grid') // 'grid' or 'list'
+  const [showFilters, setShowFilters] = useState(true)
   const { addToCart } = useCart()
 
   useEffect(() => {
@@ -69,6 +71,14 @@ const Products = () => {
     setSearchParams({})
   }
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category)
+    // Auto-close filters on mobile after selection
+    if (window.innerWidth < 992) {
+      setTimeout(() => setShowFilters(false), 300)
+    }
+  }
+
   const categories = [
     { value: 'todos', label: 'Todos los productos' },
     { value: 'frutas', label: 'Frutas Frescas' },
@@ -97,65 +107,105 @@ const Products = () => {
 
         {/* Search and Filters */}
         <div className="search-filter-section mb-4">
-          <Row className="g-3">
-            <Col md={6}>
-              <InputGroup>
+          {/* Search bar with view mode toggle */}
+          <Row className="g-3 mb-3">
+            <Col xs={12} md={8}>
+              <InputGroup className="search-input-group">
                 <Form.Control
                   type="text"
                   placeholder="Buscar productos..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
+                  className="search-input"
                 />
-                <Button variant="outline-secondary">
+                <Button variant="outline-secondary" className="search-button">
                   <i className="fas fa-search"></i>
                 </Button>
               </InputGroup>
             </Col>
-            <Col md={6}>
-              <Row className="g-2">
-                <Col xs={6}>
-                  <Form.Control
-                    type="number"
-                    placeholder="Precio mín."
-                    value={minPrice}
-                    onChange={(e) => setMinPrice(e.target.value)}
-                  />
-                </Col>
-                <Col xs={6}>
-                  <Form.Control
-                    type="number"
-                    placeholder="Precio máx."
-                    value={maxPrice}
-                    onChange={(e) => setMaxPrice(e.target.value)}
-                  />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-
-          <Row className="mt-3">
-            <Col md={8}>
-              <div className="category-filters">
-                {categories.map(cat => (
-                  <Button
-                    key={cat.value}
-                    variant={selectedCategory === cat.value ? 'success' : 'outline-success'}
-                    size="sm"
-                    className="me-2 mb-2"
-                    onClick={() => setSelectedCategory(cat.value)}
-                  >
-                    {cat.label}
-                  </Button>
-                ))}
+            <Col xs={12} md={4} className="d-flex gap-2">
+              {/* View mode toggle */}
+              <div className="btn-group flex-grow-1" role="group">
+                <Button
+                  variant={viewMode === 'grid' ? 'success' : 'outline-success'}
+                  onClick={() => setViewMode('grid')}
+                  className="view-toggle-btn"
+                >
+                  <i className="fas fa-th me-2"></i>
+                  <span className="d-none d-sm-inline">Cuadrícula</span>
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'success' : 'outline-success'}
+                  onClick={() => setViewMode('list')}
+                  className="view-toggle-btn"
+                >
+                  <i className="fas fa-list me-2"></i>
+                  <span className="d-none d-sm-inline">Lista</span>
+                </Button>
               </div>
-            </Col>
-            <Col md={4} className="text-md-end">
-              <Button variant="outline-secondary" size="sm" onClick={clearFilters}>
-                <i className="fas fa-times me-2"></i>
-                Limpiar filtros
+              {/* Filter toggle button (mobile only) */}
+              <Button
+                variant="outline-success"
+                className="d-lg-none"
+                onClick={() => setShowFilters(!showFilters)}
+              >
+                <i className={`fas fa-filter me-2`}></i>
+                Filtros
               </Button>
             </Col>
           </Row>
+
+          {/* Collapsible Filters */}
+          <Collapse in={showFilters}>
+            <div>
+              <Row className="g-3">
+                <Col xs={12} md={6}>
+                  <Row className="g-2">
+                    <Col xs={6}>
+                      <Form.Control
+                        type="number"
+                        placeholder="Precio mín."
+                        value={minPrice}
+                        onChange={(e) => setMinPrice(e.target.value)}
+                      />
+                    </Col>
+                    <Col xs={6}>
+                      <Form.Control
+                        type="number"
+                        placeholder="Precio máx."
+                        value={maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                      />
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+
+              <Row className="mt-3">
+                <Col md={8}>
+                  <div className="category-filters">
+                    {categories.map(cat => (
+                      <Button
+                        key={cat.value}
+                        variant={selectedCategory === cat.value ? 'success' : 'outline-success'}
+                        size="sm"
+                        className="me-2 mb-2"
+                        onClick={() => handleCategoryChange(cat.value)}
+                      >
+                        {cat.label}
+                      </Button>
+                    ))}
+                  </div>
+                </Col>
+                <Col md={4} className="text-md-end">
+                  <Button variant="outline-secondary" size="sm" onClick={clearFilters}>
+                    <i className="fas fa-times me-2"></i>
+                    Limpiar filtros
+                  </Button>
+                </Col>
+              </Row>
+            </div>
+          </Collapse>
         </div>
 
         {/* Results count */}
@@ -165,7 +215,7 @@ const Products = () => {
           </p>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid/List */}
         {filteredProducts.length === 0 ? (
           <div className="text-center py-5">
             <i className="fas fa-search fa-3x text-muted mb-3"></i>
@@ -176,45 +226,103 @@ const Products = () => {
             </Button>
           </div>
         ) : (
-          <Row className="g-4">
+          <Row className={`g-4 ${viewMode === 'list' ? 'product-list-view' : ''}`}>
             {filteredProducts.map(product => (
-              <Col key={product.id} sm={6} md={4} lg={3}>
-                <Card className="product-card h-100">
-                  <Link to={`/producto/${product.id}`} className="product-link">
-                    <Card.Img
-                      variant="top"
-                      src={`/public/${product.imagen}`}
-                      alt={product.nombre}
-                      className="product-image"
-                    />
-                  </Link>
-                  <Card.Body className="d-flex flex-column">
-                    <div className="mb-2">
-                      <span className="badge bg-success">{product.categoria}</span>
-                    </div>
-                    <Card.Title className="product-name">
+              <Col 
+                key={product.id} 
+                xs={12}
+                sm={viewMode === 'list' ? 12 : 6} 
+                md={viewMode === 'list' ? 6 : 4} 
+                lg={viewMode === 'list' ? 6 : 3}
+              >
+                <Card className={`product-card h-100 ${viewMode === 'list' ? 'product-card-list' : ''}`}>
+                  {viewMode === 'grid' ? (
+                    // Grid view (original)
+                    <>
                       <Link to={`/producto/${product.id}`} className="product-link">
-                        {product.nombre}
+                        <Card.Img
+                          variant="top"
+                          src={`/public/${product.imagen}`}
+                          alt={product.nombre}
+                          className="product-image"
+                        />
                       </Link>
-                    </Card.Title>
-                    <Card.Text className="product-description text-muted">
-                      {product.descripcion}
-                    </Card.Text>
-                    <div className="mt-auto">
-                      <div className="d-flex justify-content-between align-items-center mb-3">
-                        <span className="product-price">${product.precio.toLocaleString()}</span>
-                        <span className="text-muted small">por unidad</span>
-                      </div>
-                      <Button
-                        variant="success"
-                        className="w-100"
-                        onClick={() => handleAddToCart(product)}
-                      >
-                        <i className="fas fa-cart-plus me-2"></i>
-                        Agregar
-                      </Button>
-                    </div>
-                  </Card.Body>
+                      <Card.Body className="d-flex flex-column">
+                        <div className="mb-2">
+                          <span className="badge bg-success">{product.categoria}</span>
+                        </div>
+                        <Card.Title className="product-name">
+                          <Link to={`/producto/${product.id}`} className="product-link">
+                            {product.nombre}
+                          </Link>
+                        </Card.Title>
+                        <Card.Text className="product-description text-muted">
+                          {product.descripcion}
+                        </Card.Text>
+                        <div className="mt-auto">
+                          <div className="d-flex justify-content-between align-items-center mb-3">
+                            <span className="product-price">${product.precio.toLocaleString()}</span>
+                            <span className="text-muted small">por unidad</span>
+                          </div>
+                          <Button
+                            variant="success"
+                            className="w-100"
+                            onClick={() => handleAddToCart(product)}
+                          >
+                            <i className="fas fa-cart-plus me-2"></i>
+                            Agregar
+                          </Button>
+                        </div>
+                      </Card.Body>
+                    </>
+                  ) : (
+                    // List view (horizontal layout)
+                    <Row className="g-0">
+                      <Col xs={4} md={3}>
+                        <Link to={`/producto/${product.id}`} className="product-link">
+                          <Card.Img
+                            src={`/public/${product.imagen}`}
+                            alt={product.nombre}
+                            className="product-image-list"
+                          />
+                        </Link>
+                      </Col>
+                      <Col xs={8} md={9}>
+                        <Card.Body className="d-flex flex-column h-100">
+                          <div className="mb-2">
+                            <span className="badge bg-success">{product.categoria}</span>
+                          </div>
+                          <Card.Title className="product-name">
+                            <Link to={`/producto/${product.id}`} className="product-link">
+                              {product.nombre}
+                            </Link>
+                          </Card.Title>
+                          <Card.Text className="product-description text-muted d-none d-md-block">
+                            {product.descripcion}
+                          </Card.Text>
+                          <div className="mt-auto">
+                            <Row className="align-items-center">
+                              <Col xs={12} sm={6} className="mb-2 mb-sm-0">
+                                <span className="product-price">${product.precio.toLocaleString()}</span>
+                                <span className="text-muted small ms-2">por unidad</span>
+                              </Col>
+                              <Col xs={12} sm={6}>
+                                <Button
+                                  variant="success"
+                                  className="w-100"
+                                  size="sm"
+                                  onClick={() => handleAddToCart(product)}
+                                >
+                                  <i className="fas fa-cart-plus me-2"></i>
+                                  Agregar
+                                </Button>
+                              </Col>
+                            </Row>
+                          </div>
+                        </Card.Body>
+                      </Col>
+                    </Row>
+                  )}
                 </Card>
               </Col>
             ))}

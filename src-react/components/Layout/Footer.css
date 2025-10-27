@@ -114,17 +114,142 @@
   text-decoration: underline;
 }
 
+@media (max-width: 991px) {
+  .footer {
+    padding: 2.5rem 0 1rem;
+    margin-top: 3rem;
+  }
+
+  .footer-title {
+    font-size: 1.35rem;
+  }
+
+  .footer-subtitle {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 2rem 0 1rem;
+    margin-top: 2rem;
+  }
+
+  .footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+
+  .footer-contact li {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-contact i {
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin-top: 0.75rem;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .footer-divider {
+    margin: 1.5rem 0 1rem;
   }
 
   .footer-copyright {
     font-size: 0.8rem;
+    text-align: center;
   }
 
   .footer-copyright span {
     display: block;
     margin-top: 0.5rem;
+  }
+
+  .footer-legal-link {
+    font-size: 0.8rem;
+  }
+
+  /* Stack footer columns */
+  .footer .row > div {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .footer .row > div:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-links {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .footer-contact {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 0 0.75rem;
+  }
+
+  .footer-title {
+    font-size: 1.15rem;
+  }
+
+  .footer-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+  }
+
+  .footer-links a,
+  .footer-contact li {
+    font-size: 0.85rem;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .social-links {
+    gap: 0.75rem;
+  }
+
+  .footer .row > div {
+    margin-bottom: 1.25rem;
   }
 }

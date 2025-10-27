@@ -55,6 +55,13 @@
   font-size: 1.2rem;
 }
 
+/* Mobile cart icon - always visible */
+.cart-link.d-lg-none {
+  margin-left: auto;
+  margin-right: 0.75rem;
+  padding: 0.5rem !important;
+}
+
 .cart-badge {
   position: absolute;
   top: 0;
@@ -91,8 +98,26 @@
 }
 
 @media (max-width: 991px) {
+  .custom-navbar {
+    padding: 0.75rem 0;
+  }
+
+  .custom-navbar .brand {
+    font-size: 1.35rem;
+  }
+
+  .custom-navbar .navbar-toggler {
+    padding: 0.5rem 0.75rem;
+    border-color: var(--primary-green);
+  }
+
+  .custom-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(123, 179, 66, 0.25);
+  }
+
   .custom-navbar .nav-link {
-    padding: 0.75rem 0 !important;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.95rem;
   }
   
   .custom-navbar .nav-link::after {
@@ -101,14 +126,89 @@
 
   .cart-link {
     margin: 0.5rem 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem !important;
   }
 
   .user-dropdown {
     margin: 0.5rem 0;
   }
 
-  .btn {
+  .user-dropdown .dropdown-toggle {
+    font-size: 0.95rem;
+  }
+
+  .btn-outline-success,
+  .btn-success {
     margin: 0.5rem 0;
     width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-navbar {
+    padding: 0.5rem 0;
+  }
+
+  .custom-navbar .brand {
+    font-size: 1.25rem;
+  }
+
+  .custom-navbar .navbar-toggler {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .custom-navbar .nav-link {
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(45, 80, 22, 0.05);
+  }
+
+  .custom-navbar .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .cart-link {
+    padding: 0.65rem 0.5rem !important;
+    font-size: 1.1rem;
+  }
+
+  .cart-badge {
+    right: 3px;
+    font-size: 0.65rem;
+  }
+
+  .user-dropdown .dropdown-toggle {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.5rem;
+  }
+
+  .user-dropdown .dropdown-menu {
+    margin-top: 0.25rem;
+  }
+
+  .user-dropdown .dropdown-item {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-navbar .brand {
+    font-size: 1.15rem;
+  }
+
+  .custom-navbar .navbar-toggler {
+    font-size: 0.9rem;
+  }
+
+  .btn-outline-success,
+  .btn-success {
+    font-size: 0.85rem;
+    padding: 0.55rem 0.9rem;
   }
 }
