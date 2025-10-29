@@ -1,73 +1,70 @@
-# HuertoHogar - Guía de Instalación y Uso
+# HuertoHogar React
 
-Este proyecto es una aplicación web y API REST para la gestión de productos, usuarios y pedidos de HuertoHogar. Incluye frontend, backend y base de datos MySQL.
+Aplicación web moderna para la venta de productos agrícolas desarrollada con React y Bootstrap.
 
-## Requisitos
+## 🚀 Instalación y Configuración
 
-- Node.js 16+
-- MySQL 8.0+
-- npm (o yarn)
+### Prerrequisitos
+- Node.js 18+ 
+- npm o yarn
 
-## Instalación Paso a Paso
+### Instalación Local
 
-### 1. Clonar el repositorio
-
-Descarga o clona el proyecto en tu máquina local.
-
-### 2. Instalar dependencias del backend
-
+1. **Clonar el repositorio**
 ```bash
-cd api
+git clone https://github.com/francoabl/HuertoHogarReact.git
+cd HuertoHogarReact
+```
+
+2. **Instalar dependencias**
+```bash
+cd src-react
 npm install
 ```
 
-### 3. Crear y poblar la base de datos
-
-1. Abre MySQL Workbench, phpMyAdmin o la terminal de MySQL.
-2. Ejecuta el script `create_database.sql`:
-
-```sql
-source create_database.sql;
-```
-
-Esto creará la base de datos, tablas, datos iniciales y el usuario administrador.
-
-### 4. Configurar variables de entorno
-
-Copia el archivo de ejemplo y edítalo:
-
+3. **Ejecutar en modo desarrollo**
 ```bash
-cp .env.example .env
+npm run dev
 ```
 
-Edita `.env` con tus datos de conexión MySQL y claves JWT:
-
-```
-PORT=3000
-NODE_ENV=development
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=huertohogar_db
-DB_USER=root
-DB_PASSWORD=tu_password_mysql
-JWT_SECRET=tu_clave_secreta_super_segura_aqui
-JWT_EXPIRES_IN=7d
-```
-
-### 5. Iniciar el servidor API
-
+4. **Construir para producción**
 ```bash
-npm run dev   # modo desarrollo
-npm start     # modo producción
+npm run build
 ```
 
-El servidor estará disponible en `http://localhost:3000`.
+La aplicación estará disponible en `http://localhost:5173`
 
-### 6. Probar la API
+## 📦 Tecnologías Utilizadas
 
-- Verifica el estado: `GET /health`
-- Consulta endpoints en `GET /api`
-- Usa herramientas como Postman, Insomnia o curl para probar los endpoints.
+- **React 18** - Framework principal
+- **Vite** - Herramienta de construcción
+- **Bootstrap 5** - Framework CSS
+- **React Router** - Enrutamiento
+- **Context API** - Gestión de estado
+
+## 🏗️ Estructura del Proyecto
+
+```
+src-react/
+├── src/
+│   ├── components/     # Componentes reutilizables
+│   ├── pages/         # Páginas principales
+│   ├── context/       # Context API para estado global
+│   └── data/          # Datos estáticos
+├── public/            # Archivos estáticos
+└── dist/             # Build de producción
+```
+
+## 📱 Características
+
+- ✅ Diseño responsivo
+- ✅ Carrito de compras
+- ✅ Sistema de autenticación
+- ✅ Catálogo de productos
+- ✅ Blog integrado
+- ✅ Optimizado para SEO
+
+
 
 #### Ejemplo: Registro de usuario
 
@@ -126,5 +123,3 @@ curl -X GET "http://localhost:3000/api/products?page=1&limit=10&search=manzana"
 ISC
 
 ---
-
-¿Dudas? Revisa la documentación en `api/README.md` o contacta al autor.
